@@ -12,25 +12,31 @@
 .menu-list { 
     display: flex;
     list-style-type: none;
+
     
 }
 
 .menu-list li {
     padding : 10px;
+ 
 }
 
-.menu-area {
+.menu-area { 
     display: flex;
     justify-content: center;
 }
 
 .search { 
-  display: flex;
-  justify-content: flex-end;
+    padding : 5px;
+    font-size: 20px;
+    margin-top :15px;
+    right : 20px;
+    position : absolute;
 }
 
-.img-search {
-    padding-top :30px;
-    width : 40px;
- 
+.search input { 
+    border : none;
+    font-size: 18px;
+    border-bottom : 1px solid #000000;
+    padding-left: 5px;
 }
