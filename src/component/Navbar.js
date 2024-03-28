@@ -3,8 +3,15 @@ import React from 'react'
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+    const navigate = useNavigate();
+
+    const mainpage = () => {
+        navigate('/')
+    }
 
     const menuList= [
     '여성',
@@ -20,13 +27,14 @@ const Navbar = () => {
   return (
     <div>
         <div>
-            <div className = "login-button">
-                <FontAwesomeIcon icon={faUser} />
-                <div> 로그인 </div>
+            <div className = "login-button" >
+                <FontAwesomeIcon icon={faUser}  />
+                <Link to = "/login" className = {mainpage}>로그인 </Link>
             </div>
         </div>
         <div className= "nav-section">
          <img
+            onClick={homepage}
           width = {100}
           src='https://blog.kakaocdn.net/dn/Yt80C/btqDeJAYUBo/JQbTuukRladq2AUOeqgiEK/img.jpg'></img>
         </div>

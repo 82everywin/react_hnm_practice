@@ -3,7 +3,7 @@ import { Col, Container, Row} from 'react-bootstrap';
 import ProductCard from '../component/ProductCard';
 
 const ProductAll = () => {
-
+    const [ishover, setIsHover] = useState(false);
     const [productList, setProductList] = useState([]);
     const getProducts = async() => {
         let url = "http://localhost:5000/products";
@@ -11,6 +11,14 @@ const ProductAll = () => {
         let data = await response.json();
         setProductList(data);
         console.log(data)
+    }
+
+    const handleMouseOver = () => {
+      setIsHover(true);
+    }
+
+    const handleMouseOut = () => {
+      setIsHover(false);
     }
 
     useEffect(()=>{
@@ -21,10 +29,10 @@ const ProductAll = () => {
   return (
     <div>
         <Container>
-          <Row className='Card' >
+          <Row >
            {productList.map((item)=>(
-                <Col lg={3} className="col">
-                  <ProductCard item={item}/>
+                <Col lg={3} className = "card_box">
+                  <ProductCard item={item} />
                 </Col>
               )) }
           </Row>
