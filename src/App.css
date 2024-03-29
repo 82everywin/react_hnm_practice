@@ -83,3 +83,24 @@
     width:380px;
    
 }
+
+.product-img{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.margin {
+    margin-bottom : 5px;
+}
+
+.detail-title  {
+    font-size: 23px;
+}
+
+.detail-price {
+    font-size: 20px;
+}
+
+.detail-size{
+    padding-bottom: 15px;
+}

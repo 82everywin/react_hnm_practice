@@ -3,7 +3,7 @@ import './App.css';
 import {Routes, Route} from "react-router-dom"
 import ProductAll from './page/ProductAll';
 import Login from './page/Login';
-import ProductDetail from './page/ProductDetail';
+
 import Navbar from './component/Navbar';
 import { useEffect, useState } from 'react';
 import PrivateRoute from './route/PrivateRoute';

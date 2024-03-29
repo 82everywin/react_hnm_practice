@@ -25,6 +25,10 @@ const Navbar = () => {
     '지속가능성'
     ];
 
+    const search = () => {
+        console.log("onkeypress")
+    }
+
   return (
     <div>
         <div>
@@ -50,7 +54,7 @@ const Navbar = () => {
             </ul>
             <div className="search">
                 <FontAwesomeIcon icon={faSearch} className='img-search'/>
-                <input type="text" placeholder='제품검색'></input>
+                <input type="text" placeholder='제품검색' onKeyPress={search} />
             </div>
          </div>
     </div>
