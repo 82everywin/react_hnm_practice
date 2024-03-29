@@ -38,7 +38,7 @@ const Navbar = () => {
         </div>
         <div className= "nav-section">
          <img
-            onClick={mainpage}
+         onClick={mainpage}
           width = {100}
           src='https://blog.kakaocdn.net/dn/Yt80C/btqDeJAYUBo/JQbTuukRladq2AUOeqgiEK/img.jpg'></img>
         </div>
