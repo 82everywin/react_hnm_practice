@@ -64,12 +64,12 @@
 }
 .cardimg {
     position: relative;
-   width : 270px;
+   width : 290px;
 
 }
 
 .cardimg:hover { 
-    width : 300px;
+    width : 320px;
 }
 
 .cardcontainer:hover {
@@ -90,7 +90,7 @@
 }
 
 .margin {
-    margin-bottom : 5px;
+    margin-bottom : 10px;
 }
 
 .detail-title  {
