@@ -11,7 +11,7 @@ const ProductDetail = () => {
 
 
   const getProductDetail = async() => {
-    let url = `https://my-json-server.typicode.com/82everywin/react_hnm_practice/tproducts/${id} `
+    let url = `https://my-json-server.typicode.com/82everywin/react_hnm_practice/products/${id} `
     let response = await fetch(url)
     let data = await response.json();
     console.log(data);
