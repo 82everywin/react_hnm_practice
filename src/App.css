@@ -7,12 +7,20 @@
    
 }
 
-.link_login {
-    padding-left : 10px;
-    padding-bottom: 5px;
+.login-icon{
+    margin-top:3px;
+}
+
+.login-bar {
+    padding-left : 5px;
+    padding-bottom: 10px;
     text-decoration: none;
     color: black;
     font-size: 20px;
+}
+
+.main-bar {
+    margin-right: 20px;
 }
 .nav-section {
     display: flex;
@@ -33,6 +41,7 @@
 .menu-area { 
     display: flex;
     justify-content: center;
+    margin-bottom: 30px;
 }
 
 .search { 

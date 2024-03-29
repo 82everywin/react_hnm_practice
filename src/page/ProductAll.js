@@ -2,24 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row} from 'react-bootstrap';
 import ProductCard from '../component/ProductCard';
 
-const ProductAll = () => {
-    const [ishover, setIsHover] = useState(false);
+const ProductAll = ({authenticate}) => {
+    
     const [productList, setProductList] = useState([]);
     const getProducts = async() => {
-        let url = "http://localhost:5000/products";
+        let url = "http://localhost:4000/products";
         let response = await fetch(url);
         let data = await response.json();
         setProductList(data);
         console.log(data)
     }
 
-    const handleMouseOver = () => {
-      setIsHover(true);
-    }
-
-    const handleMouseOut = () => {
-      setIsHover(false);
-    }
+ 
 
     useEffect(()=>{
         getProducts();;
@@ -32,7 +26,7 @@ const ProductAll = () => {
           <Row >
            {productList.map((item)=>(
                 <Col lg={3} className = "card_box">
-                  <ProductCard item={item} />
+                  <ProductCard item={item} authenticate={authenticate} />
                 </Col>
               )) }
           </Row>
