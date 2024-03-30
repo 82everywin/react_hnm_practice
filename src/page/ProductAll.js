@@ -10,7 +10,7 @@ const ProductAll = ({authenticate}) => {
     const [productList, setProductList] = useState([]);
 
     const getProducts = async() => {
-        let searchQuery = query.get('q');
+        let searchQuery = query.get('q') || "";
         console.log("쿼리값", searchQuery)
         let url = `https://my-json-server.typicode.com/82everywin/react_hnm_practice/products?q=${searchQuery}`;
         let response = await fetch(url);

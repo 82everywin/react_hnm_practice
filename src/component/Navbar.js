@@ -8,12 +8,17 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
 
-const Navbar = () => {
+const Navbar = ({authenticate, setAuthenticate}) => {
    const navigate= useNavigate();
 
    const mainpage= () =>{
     navigate("/");
    }
+
+   const logout = () =>{
+    setAuthenticate(false);
+   }
+   
     const menuList= [
     '여성',
     'Divided',
@@ -45,7 +50,11 @@ const Navbar = () => {
                  <FontAwesomeIcon icon={faHouse}  className="login-icon "/>
                  <Link to="/" className="login-bar main-bar">메인페이지</Link>   
                 <FontAwesomeIcon icon={faUser}  className="login-icon"/>
-                <Link to="/login" className= "login-bar">로그인</Link>
+                {
+                    authenticate==true ?
+                    <Link to="/" className= "login-bar" onClick={logout}>로그아웃</Link>  :
+                    <Link to="/login" className= "login-bar">로그인</Link> 
+                }
             </div>
         </div>
         <div className= "nav-section">

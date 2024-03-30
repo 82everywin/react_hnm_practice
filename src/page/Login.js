@@ -9,17 +9,9 @@ const Login = ({setAuthenticate}) => {
   const linkTo = useNavigate();
   const navigate=useNavigate();
 
-  const goToMain = () => {
-    linkTo("/");
-  }
-
-  const goToJoin = () => {
-    linkTo("/");
-  }
-
   const loginUser = (event) =>{ 
     event.preventDefault();
-    console.log("submit user refresh")
+   // console.log("submit user refresh")
     setAuthenticate(true);
     navigate("/");
   }
