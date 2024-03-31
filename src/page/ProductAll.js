@@ -3,7 +3,7 @@ import { Col, Container, Row} from 'react-bootstrap';
 import ProductCard from '../component/ProductCard';
 import { useSearchParams } from 'react-router-dom';
 
-const ProductAll = ({authenticate}) => {
+const ProductAll = ({authenticate, isMobile}) => {
 
     const [query, setQuery] = useSearchParams([]);
     
@@ -28,11 +28,11 @@ const ProductAll = ({authenticate}) => {
 
   return (
     <div>
-        <Container>
-          <Row >
+        <Container >
+          <Row className='browse-row'>
            {productList.map((item)=>(
-                <Col lg={3} className = "card_box">
-                  <ProductCard item={item} authenticate={authenticate} />
+                <Col lg={3} className = {isMobile ? "card_box" : "browse-col"}>
+                  <ProductCard item={item} authenticate={authenticate} isMobile={isMobile} />
                 </Col>
               )) }
           </Row>

@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
-const ProductCard = ({item, authenticate}) => {
+const ProductCard = ({item, isMobile}) => {
   const navigate=useNavigate();
   const showDetail = () => {
       navigate(`/product/${item.id}`)
@@ -10,7 +10,7 @@ const ProductCard = ({item, authenticate}) => {
  
   return (
 <div className ="cardcontainer" onClick={showDetail}>
-      <img src={item?.img}  className='cardimg'/>
+      <img src={item?.img}  className={ isMobile ? "mobile-img" : "browse-img"}/>
       <div className="cardinfo">{item?.choice ===true? "Conscious Choice": ""}</div>
       <div className="cardinfo">{item?.title}</div>
       <div className="cardinfo">{item?.price}</div>

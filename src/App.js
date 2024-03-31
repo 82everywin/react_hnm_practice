@@ -36,12 +36,12 @@ function App() {
   },[authenticate]);
  
   return (
-    <div >
+    <div className='body' >
       {isBrowse && <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate}/>}
       {isMobile && <MobileNavbar authenticate={authenticate} setAuthenticate={setAuthenticate}/>}
       <Routes >
-        <Route path="/" element={<ProductAll authenticate={authenticate}/>}></Route>
-        <Route path="/login" element={<Login setAuthenticate={setAuthenticate}s/>}></Route>
+        <Route path="/" element={<ProductAll authenticate={authenticate} isMobile={isMobile}/>}></Route>
+        <Route path="/login" element={<Login setAuthenticate={setAuthenticate} isMobile={isMobile} />}></Route>
         <Route path ="/product/:id" element={<PrivateRoute authenticate={authenticate}/>}></Route>
       </Routes>
     </div>

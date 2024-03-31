@@ -1,19 +1,20 @@
-ul {
-    padding-left: 5px;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nanum+Gothic+Coding&display=swap');
+
+.body{
+    font-family: "Nanum Gothic Coding", monospace;
+    font-weight: 400;
+    font-style: normal;
 }
 
-.menu-icon{
-    font-size :35px;
-    position: absolute;
-    left :10px;
-    border:none;
-    background-color: transparent;
+  
+ul {
+    padding-left: 5px;
 }
 
 .hide-button {
     display: flex;
     justify-content: flex-start;
-   
+    
 }
 
 .hide-icon {
@@ -24,81 +25,129 @@ ul {
 }
 
 .show-menu{
-    width: 376px;
+    width: 280px;
     height: 100%;
     position: absolute;
     left: 0px;
     transition: 1s;
-
-    background-color: #FE2E2E;
-    border-radius: 10px;
-
-    z-index: 1;
-}
     
+    background-color: #FAF9F8;
+    border-radius: 10px;
+    
+    z-index: 2;
+}
+
 .hide-menu{
-width: 376px;
-height: 500px;
-position: absolute;
-left: -376px;
-transition: 1s;
-
-list-style-type: none;
+    width: 280px;
+    height: 500px;
+    position: absolute;
+    left: -376px;
+    transition: 1s;
+    
+    list-style-type: none;
 }
-.search-box{
-    display: flex;
-    margin-bottom : 20px;
-
-}
-.search-icon {
-    font-size: 20px;
-    padding-top:8px;
-    padding-left: 5px;
-    z-index:3;
+.togglemenu {
+    margin-left: 10px;;
 }
 
 /*검색 바 */
+/* 
 .form-control {
     width: 90%;
     padding-left:28px;
     position: absolute;
     left:5px;
-    z-index: 2;
+    z-index: 3;
 }
-
+ */
 .show-menu  li {
     list-style-type: none;
     margin-bottom : 10px;
 }
 
+/* 로그인 폼 S*/
+.login-form-box {
+    width:350px;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right:10px;
+}
+.login-form {
+    width: 500px;
+    margin-left :50px;
+}
 
-.login-button {
+.mobile-login-form {
+    width : 330px;
+    
+}
+.join {
+    margin-top: 5px;;
+}
+/* 로그인 폼 S*/
+
+
+/* 상단 바  S*/
+.nav-button{
     display: flex;
     justify-content: flex-end;
     margin: 20px;
     text-align: center; 
     font-size :20px;
-   
+    
 }
-
-.login-icon{
+.nav-icon{
     margin-top:3px;
+    margin-right: 1px;
+    margin-left:8px;
 }
 
-.login-bar {
-    padding-left : 5px;
+.nav-txt{
     padding-bottom: 10px;
     text-decoration: none;
     color: black;
-    font-size: 20px;
+    font-size: 18px;
+}
+/* 상단 바 E */
+
+/* 모바일 버전 상단 바  S */
+.mobile-menu-button{
+    font-size :30px;
+    position: absolute;
+    left :10px;
+    border:none;
+    background-color: transparent;
 }
 
-.main-bar {
-    margin-right: 20px;
+.mobile-nav-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
 }
+
+.mobile-nav-button{
+    border:none;
+    background-color: transparent;
+    font-size:25px;
+}
+
+.mobile-nav-icon {
+    margin-top:10px;
+    margin-right: 1px;
+    margin-left:5px;
+}
+
+/* 모바읿 버전 상단 바  E */
+
+.main-logo {
+    background-color: transparent;
+}
+
+
 .nav-section {
     display: flex;
     justify-content: center;
+    background-color: tra;
 }
 
 .menu-list { 
@@ -133,22 +182,40 @@ list-style-type: none;
     padding-left: 5px;
 }
 
+/* 상품 ALL S */
+.browse-row {
+
+}
 .card_box { 
+    display: flex;
+    justify-content: center;
     margin-bottom:30px;
-}
-.cardimg {
-    position: relative;
-   width : 290px;
-
+   
 }
 
-.cardimg:hover { 
-    width : 320px;
+.browse-col {
+    padding-left:15px;
+    padding-right:15px;
+    padding-bottom:20px;
+}
+/* 버전에 따른 이미지 크기 S */
+.browse-img {
+    width : 280px;
 }
 
-.cardcontainer:hover {
-    font-size: 20px;
+.browse-img:hover {
+    width : 300px;
 }
+.mobile-img {
+    width : 310px;
+    
+}
+
+.mobile-img:hover { 
+    width : 340px;
+}
+
+/* 버전에 따른 이미지 크기 E */
 
 .cardinfo {
     font-size: 18px;

@@ -2,8 +2,8 @@ import React from 'react'
 
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 
@@ -46,22 +46,28 @@ const Navbar = ({authenticate, setAuthenticate}) => {
     <div>
         <div>
             
-            <div className = "login-button" >
-                 <FontAwesomeIcon icon={faHouse}  className="login-icon "/>
-                 <Link to="/" className="login-bar main-bar">메인페이지</Link>   
-                <FontAwesomeIcon icon={faUser}  className="login-icon"/>
+            <div className = "nav-button" >
+                <FontAwesomeIcon icon={faUser}  className="nav-icon"/>
                 {
                     authenticate==true ?
-                    <Link to="/" className= "login-bar" onClick={logout}>로그아웃</Link>  :
-                    <Link to="/login" className= "login-bar">로그인</Link> 
+                    <Link to="/" className= "nav-icon" onClick={logout}>로그아웃</Link>  :
+                    <Link to="/login" className= "nav-txt">로그인</Link> 
                 }
+                 <FontAwesomeIcon icon={faHeart}className= "nav-icon"/>         
+                 <Link to="/" className="nav-txt">즐겨찾기</Link>  
+                  
+                <FontAwesomeIcon icon={faCartShopping} className='nav-icon'/>
+                <Link to="/" className="nav-txt">장바구니</Link>  
+                      
+                    
+                 
             </div>
         </div>
         <div className= "nav-section">
          <img
          onClick={mainpage}
           width = {100}
-          src='https://blog.kakaocdn.net/dn/Yt80C/btqDeJAYUBo/JQbTuukRladq2AUOeqgiEK/img.jpg'></img>
+          src='https://www2.hm.com/hm-logo.png'></img>
         </div>
         <div className = "menu-area">
             <ul className="menu-list">

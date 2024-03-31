@@ -3,11 +3,12 @@ import React, { useState } from 'react'
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Form from 'react-bootstrap/Form';
+import { isMobile } from 'react-device-detect';
 
 
 const MobileNavbar = ({authenticate, setAuthenticate}) => {
@@ -16,8 +17,12 @@ const MobileNavbar = ({authenticate, setAuthenticate}) => {
     
     const navigate = useNavigate(); 
     
+    const login = () => {
+        navigate("/login");
+    }
     const logout = () =>{
         setAuthenticate(false);
+        navigate("/");
        }
 
     const mainpage = () =>{
@@ -57,38 +62,43 @@ const MobileNavbar = ({authenticate, setAuthenticate}) => {
     return (
     <div>
         <div>
-            <div className = "login-button" >
+            <div  >
                 <ul>
-                    <button  className= 'menu-icon'
-                    onClick={toggleMenu}> <FontAwesomeIcon icon={faBars}/></button>  
+                    <button  className= 'mobile-menu-button' onClick={toggleMenu}>
+                        <FontAwesomeIcon icon={faBars}/>
+                    </button>  
+                    <div className='mobile-nav-box'>
+                        {isMobile ? 
+                            <button className ='mobile-nav-button'><FontAwesomeIcon icon={faSearch}  className='mobile-nav-icon'/></button> : 
+                            <button></button>
                     
-                    <FontAwesomeIcon icon={faHouse}  className="login-icon "/>
-                    <Link to="/" className="login-bar main-bar">메인페이지</Link>   
-                <FontAwesomeIcon icon={faUser}  className="login-icon"/>
-                {
-                    authenticate==true ?
-                    <Link to="/" className= "login-bar" onClick={logout}>로그아웃</Link>  :
-                    <Link to="/login" className= "login-bar">로그인</Link> 
-                }
+                        }
+                        <button className ='mobile-nav-button' onClick={authenticate==true ?logout : login}>
+                        <FontAwesomeIcon icon={faUser} className='mobile-nav-icon'/>
+                        </button>
+
+                        <button className='mobile-nav-button' onClick={mainpage}>
+                            <FontAwesomeIcon icon={faHeart} className='mobile-nav-icon' />
+                        </button>
+                    </div>
                 </ul>
                 <ul className={isOpen ? "show-menu" : "hide-menu"}>
                     <div className='hide-button'>
                         <button onClick={toggleMenu} className='hide-icon'>
                         <FontAwesomeIcon icon={faXmark}/>
                         </button>
-                     </div>
-                     <div className = 'search-box'>
-                     <FontAwesomeIcon icon={faSearch} className='search-icon'/>
-                     <Form.Control type="text" placeholder="제품을 검색하세요" className='search-bar' onKeyUp={(event) => search(event)}/>
-
-                     </div>
-                {menuList.map((menu)=>
-                <li>{menu}</li>
-                )}
+                    </div>
+                    
+                    <div className='togglemenu'>
+                      {menuList.map((menu)=>
+                              <li>{menu}</li>
+                       )}
+                    </div>
                 </ul>
             </div>
-            
         </div>
+            
+      
         <div className= "nav-section">
          <img
          onClick={mainpage}
@@ -96,7 +106,7 @@ const MobileNavbar = ({authenticate, setAuthenticate}) => {
           src='https://blog.kakaocdn.net/dn/Yt80C/btqDeJAYUBo/JQbTuukRladq2AUOeqgiEK/img.jpg'></img>
         </div>
     </div>
-  )
+  ) 
 }
 
 export default MobileNavbar
