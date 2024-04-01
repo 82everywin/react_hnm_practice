@@ -127,6 +127,11 @@ ul {
 /* 상단 바 E */
 
 /* 모바일 버전 상단 바  S */
+.mobile-nav-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
 .mobile-menu-button{
     font-size :30px;
     position: absolute;
@@ -152,14 +157,13 @@ ul {
     border : 0;
     border-radius: 10px;
     border-bottom: 1px solid #bbb;
-    
+    color : #000000;
     margin-top:5px;
 }
 
 .mobile-search-icon {
     top:5px;
     margin-top:10px;
-  
 
 }
 
@@ -168,11 +172,6 @@ ul {
     display:none;
 }
 
-.mobile-nav-box {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 10px;
-}
 
 .mobile-nav-button{
     border:none;

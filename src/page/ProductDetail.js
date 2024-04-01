@@ -25,7 +25,7 @@ const ProductDetail = ({isMobile}) => {
 
   return (
     
-      <Container>
+      <Container className={isMobile ?'mobile-product-top':'browse-product-top'}>
           <Row >
             <Col >
               <img src={product?.img} className={isMobile ? 'mobile-product-img'  :''}>
@@ -33,7 +33,7 @@ const ProductDetail = ({isMobile}) => {
             </Col>
             <Col>
               <div className='margin detail-title'> {product?.title}</div>
-              <div className='margin detail-price'>  ₩ {product?.price}</div>
+              <div className='margin detail-price'>  ₩{product?.price}</div>
               <div className='margin detail-choice'>{product?.choice == true ? "Conscious Choice" : ""}</div>
               <Dropdown  className='detail-size margin'>
                 <Dropdown.Toggle variant="outline-secondary" id="dropdown-basic">
@@ -50,6 +50,12 @@ const ProductDetail = ({isMobile}) => {
               <div className="d-grid gap-2 detail-cart margin">
               <Button variant="secondary" size="lg">
                 장바구니 추가 
+              </Button>
+              </div>
+
+              <div className="d-grid gap-2 detail-cart margin">
+              <Button variant="dark" size="lg">
+                구매하기 
               </Button>
               </div>
             </Col> 
