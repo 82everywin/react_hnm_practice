@@ -122,7 +122,7 @@ const MobileNavbar = ({authenticate, setAuthenticate}) => {
 
                             <button className={isSearchOpen==true?
                                 'mobile-search-hidden':
-                                'mobile-nav-button' } onClick={mainpage}>
+                                'mobile-nav-button' } onClick={login}>
                                 <FontAwesomeIcon icon={faCartShopping} className='mobile-nav-icon' />
                             </button>
                         </div>

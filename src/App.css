@@ -84,7 +84,7 @@ ul {
 /* 로그인 폼 S*/
 .login-form-box {
     width:350px;
-    margin-top: 30px;
+    margin-top: 275px;
     margin-left: 10px;
     margin-right:10px;
 }
@@ -101,6 +101,19 @@ ul {
     margin-top: 5px;;
 }
 /* 로그인 폼 S*/
+
+/* 모바일 로그인 폼 S*/
+.mobile-login-box {
+    width:330px;
+    margin-top: 180px;
+    margin-left: 10px;
+    margin-right:10px;
+}
+
+
+
+/* 모바일 로그인 폼 S*/
+
 
 
 /* 상단 바  S*/
@@ -258,6 +271,16 @@ ul {
     padding-left:15px;
     padding-right:15px;
     padding-bottom:20px;
+}
+
+.new-product {
+    font-weight: bold;
+    color : rgb(230, 35, 35);
+}
+
+.hit-product {
+    font-weight: bold;
+    color : rgb(228, 37, 148);
 }
 /* 버전에 따른 이미지 크기 S */
 .browse-img {
