@@ -36,7 +36,7 @@ ul {
     font-size : 40px;
     background-color: transparent;
     border: none;
-    
+    color : #000000;
 }
 
 .show-menu{
@@ -133,10 +133,21 @@ ul {
     left :10px;
     border:none;
     background-color: transparent;
+    color :#000000;
+    top:5px;
+}
+
+.mobile-search-text {
+    border:0;
+    margin-top:5px;
+    width :250px;
+    height: 40px;
+    border-radius: 10px;
+    border-bottom: 1px solid #bbb;
 }
 
 .mobile-search-bar{
-    width : 160px;
+    width : 30px;
     height: 40px;
     border : 0;
     border-radius: 10px;
@@ -144,6 +155,14 @@ ul {
     
     margin-top:5px;
 }
+
+.mobile-search-icon {
+    top:5px;
+    margin-top:10px;
+  
+
+}
+
 
 .hidden {
     display:none;
@@ -160,9 +179,15 @@ ul {
     background-color: transparent;
     font-size:25px;
     color :#000000;
+   
+}
+
+.mobile-search-hidden {
+    display:none;
 }
 
 .mobile-nav-icon {
+    top:5px;
     margin-top:10px;
     margin-right: 1px;
     margin-left:5px;

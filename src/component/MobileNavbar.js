@@ -89,22 +89,40 @@ const MobileNavbar = ({authenticate, setAuthenticate}) => {
                             <input 
                             type ='text'
                             placeholder='제품을 검색하세요'
-                            className = {isSearchOpen==true? 'mobile-search-bar' : 'hidden'}
+                            className = {isSearchOpen==true? 'mobile-search-text' : 'hidden'}
                             onKeyUp={(event) => search(event)}
                             value={text}
                             onChange={displayText}
                             onClick={valueNull}>
+                             
                             </input> 
                         
-                            <button className ='mobile-nav-button' onClick= {show_search}>
-                                <FontAwesomeIcon icon={faSearch}  className='mobile-nav-icon'/>
+                            <button className ={isSearchOpen==true?
+                            'mobile-search-bar hidden':
+                            'mobile-nav-button' }
+                                onClick= {show_search}>
+                                <FontAwesomeIcon icon={faSearch}  className='mobile-search-icon'/>
                             </button> 
-                            
-                            <button className ='mobile-nav-button' onClick={authenticate==true ?logout : login}>
+
+                              <button className ={isSearchOpen==true?
+                            'mobile-search-bar':
+                            'mobile-nav-button hidden' }
+                                onClick={show_search}
+                                >
+                                <FontAwesomeIcon icon={faXmark}  className='mobile-search-icon'/>
+                            </button> 
+                                
+                     
+                            <button className ={isSearchOpen==true?
+                            'mobile-search-hidden':
+                           'mobile-nav-button' }
+                                onClick={authenticate==true ?logout : login}>
                             <FontAwesomeIcon icon={faUser} className='mobile-nav-icon'/>
                             </button>
 
-                            <button className='mobile-nav-button' onClick={mainpage}>
+                            <button className={isSearchOpen==true?
+                                'mobile-search-hidden':
+                                'mobile-nav-button' } onClick={mainpage}>
                                 <FontAwesomeIcon icon={faCartShopping} className='mobile-nav-icon' />
                             </button>
                         </div>
