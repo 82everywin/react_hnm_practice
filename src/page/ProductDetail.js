@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
 
-const ProductDetail = () => {
+const ProductDetail = ({isMobile}) => {
 
   let{id} = useParams()
   const [product, setProduct] = useState(null);
@@ -27,8 +27,8 @@ const ProductDetail = () => {
     
       <Container>
           <Row >
-            <Col className ="product-img">
-              <img src={product?.img}>
+            <Col >
+              <img src={product?.img} className={isMobile ? 'mobile-product-img'  :''}>
                </img>
             </Col>
             <Col>

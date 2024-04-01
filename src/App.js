@@ -42,7 +42,7 @@ function App() {
       <Routes >
         <Route path="/" element={<ProductAll authenticate={authenticate} isMobile={isMobile}/>}></Route>
         <Route path="/login" element={<Login setAuthenticate={setAuthenticate} isMobile={isMobile} />}></Route>
-        <Route path ="/product/:id" element={<PrivateRoute authenticate={authenticate}/>}></Route>
+        <Route path ="/product/:id" element={<PrivateRoute authenticate={authenticate} isMobile={isMobile}/>}></Route>
       </Routes>
     </div>
   );
