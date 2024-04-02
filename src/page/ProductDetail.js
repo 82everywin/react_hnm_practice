@@ -3,24 +3,25 @@ import { Col, Container, Row } from 'react-bootstrap';
 import { useParams } from 'react-router-dom'
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
+import { productAction } from '../redux/actions/productAction';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 const ProductDetail = ({isMobile}) => {
 
   let{id} = useParams()
-  const [product, setProduct] = useState(null);
+ // const [product, setProduct] = useState(null); //redux 사용하면 더이상 usestate가 필요 없음
+ const product = useSelector((state)=>state.product.product);
 
+  const dispatch = useDispatch();
 
   const getProductDetail = async() => {
-    let url = `https://my-json-server.typicode.com/82everywin/react_hnm_practice/products/${id} `
-    let response = await fetch(url)
-    let data = await response.json();
-    console.log(data);
-    setProduct(data);
+    dispatch(productAction.getProductsDetail(id))
   }
 
   useEffect(()=>{
     getProductDetail()
-  },[])
+  },[product])
 
 
   return (

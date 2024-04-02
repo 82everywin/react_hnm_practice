@@ -9,21 +9,24 @@ import { useNavigate } from 'react-router-dom';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import Form from 'react-bootstrap/Form';
 import { isMobile } from 'react-device-detect';
+import { useDispatch } from 'react-redux';
 
 
-const MobileNavbar = ({authenticate, setAuthenticate}) => {
+const MobileNavbar = ({authenticate}) => {
 
     const [isOpen, setIsOpen]= useState(false);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [text,setText]= useState("");
  
+    const dispatch = useDispatch();
+
     const navigate = useNavigate(); 
     
     const login = () => {
         navigate("/login");
     }
     const logout = () =>{
-        setAuthenticate(false);
+        dispatch({type:"AUTHENTICATE"})
         navigate("/");
        }
 

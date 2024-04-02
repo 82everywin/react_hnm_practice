@@ -6,9 +6,11 @@ import { faCartShopping, faSearch } from '@fortawesome/free-solid-svg-icons';
 import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { UseDispatch, useDispatch } from 'react-redux';
 
+const Navbar = ({authenticate}) => {
 
-const Navbar = ({authenticate, setAuthenticate}) => {
+    const dispatch = useDispatch();
    const navigate= useNavigate();
 
    const mainpage= () =>{
@@ -16,7 +18,8 @@ const Navbar = ({authenticate, setAuthenticate}) => {
    }
 
    const logout = () =>{
-    setAuthenticate(false);
+    dispatch({type:"AUTHENTICATE"})
+   
    }
    
     const menuList= [
@@ -50,7 +53,7 @@ const Navbar = ({authenticate, setAuthenticate}) => {
                     <FontAwesomeIcon icon={faUser}  className="nav-icon"/>
                     {
                         authenticate==true ?
-                        <Link to="/" className= "nav-icon" onClick={logout}>로그아웃</Link>  :
+                        <Link to="/" className= "nav-txt" onClick={logout}>로그아웃</Link>  :
                         <Link to="/login" className= "nav-txt">로그인</Link> 
                     }
                     <FontAwesomeIcon icon={faHeart}className= "nav-icon"/>         

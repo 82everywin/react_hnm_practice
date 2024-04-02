@@ -1,12 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useNavigate } from 'react-router'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Container } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { authenticateAction } from '../redux/actions/authenticateAction';
 
-const Login = ({setAuthenticate,isMobile}) => { 
+const Login = ({isMobile}) => { 
 
+  const [id,setId] = useState('')
+  const [pw,setPw] = useState('')
+
+  const authenticate = useSelector((state)=> state.auth.authenticate)
+  
   const navigate=useNavigate();
 
   const dispatch = useDispatch();
@@ -14,8 +20,8 @@ const Login = ({setAuthenticate,isMobile}) => {
   const loginUser = (event) =>{ 
     event.preventDefault();
    // console.log("submit user refresh")
-    dispatch.
-    setAuthenticate(true);
+    dispatch(authenticateAction.login(id,pw))
+  
     navigate("/");
   }
 
@@ -24,7 +30,7 @@ const Login = ({setAuthenticate,isMobile}) => {
      <Form onSubmit={(event)=>loginUser(event)} >
       <Form.Group className={isMobile ? "mb-3 mobile-login-form":"mb-3 login-form"} controlId="formBasicEmail">
         <Form.Label>Email</Form.Label>
-        <Form.Control type="email" placeholder="Email Address" />
+        <Form.Control type="email" placeholder="Email Address"  onChange={(event)=>setId(event.target.value)}/>
         <Form.Text className="text-muted">
           We'll never share your email with anyone else.
         </Form.Text>
@@ -32,7 +38,7 @@ const Login = ({setAuthenticate,isMobile}) => {
 
       <Form.Group className={isMobile ? "mb-3 mobile-login-form":"mb-3 login-form"} controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Control type="password" placeholder="Password"   onChange={(event)=>setPw(event.target.value)}/>
       </Form.Group>
       <Form.Group className={isMobile ? "mb-3 mobile-login-form":"mb-3 login-form"} controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />

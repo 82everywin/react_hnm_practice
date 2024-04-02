@@ -10,7 +10,7 @@ const ProductAll = ({authenticate, isMobile}) => {
     const [query, setQuery] = useSearchParams([]);
     
     //const [productList, setProductList] = useState([]);
-    const productList = useSelector(state => state.productList);
+    const productList = useSelector(state => state.product.productList);
     const dispatch = useDispatch();
 
     const getProducts = async() => {

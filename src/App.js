@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import PrivateRoute from './route/PrivateRoute';
 import { useMediaQuery } from 'react-responsive';
 import MobileNavbar from './component/MobileNavbar';
+import { useSelector } from 'react-redux';
 
 
 //1. 전체상품페이지, 로그인, 상품상세페이지
@@ -21,7 +22,7 @@ import MobileNavbar from './component/MobileNavbar';
 //8. 상품을 검색할 수 있다. 
 
 function App() {
-  const [authenticate , setAuthenticate]= useState(false);  //true면 로그인이 됨. 
+  //const [authenticate , setAuthenticate]= useState(false);  //true면 로그인이 됨. 
 
   const isBrowse = useMediaQuery({
     query : "(min-width : 768px)"
@@ -31,18 +32,19 @@ function App() {
     query : "(max-width : 767px)"
   })
 
+  const authenticate = useSelector((state)=> state.auth.authenticate);
   useEffect(()=>{
     console.log("authenticate",authenticate)
   },[authenticate]);
  
   return (
     <div className='body' >
-      {isBrowse && <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate}/>}
-      {isMobile && <MobileNavbar authenticate={authenticate} setAuthenticate={setAuthenticate}/>}
+      {isBrowse && <Navbar authenticate={authenticate} />}
+      {isMobile && <MobileNavbar authenticate={authenticate} />}
       <Routes >
         <Route path="/" element={<ProductAll authenticate={authenticate} isMobile={isMobile}/>}></Route>
-        <Route path="/login" element={<Login setAuthenticate={setAuthenticate} isMobile={isMobile} />}></Route>
-        <Route path ="/product/:id" element={<PrivateRoute authenticate={authenticate} isMobile={isMobile}/>}></Route>
+        <Route path="/login" element={<Login  isMobile={isMobile} />}></Route>
+        <Route path ="/product/:id" element={<PrivateRoute isMobile={isMobile}/>}></Route>
       </Routes>
     </div>
   );
