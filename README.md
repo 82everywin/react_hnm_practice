@@ -5,8 +5,10 @@
 👉🏻👉🏻 [H&M 웹사이트]("https://bright-paprenjak-05cf2c.netlify.app")
 
 ![mainpage](./mainpage.png)
-![mainpage mobile.ver](./mobile_mainpage.png)
+<p align="center"><img src="./mobile_mainpage.png" width="300" hegiht="100" ></p>
 
+모바일 버전에서는 메뉴를 상단바에서 노출이 되도록 변경하였고, 모바일 버전에 맞게 이모티콘으로 최대한 표시할 수 있도록 표시를 바꾸었다.
+또한, 이미지의 크기도 브라우저 버전과 모바일 버전에 맞게 재조정하였다.
 
 ### 📌 기간
 ---
