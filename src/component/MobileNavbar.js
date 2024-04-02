@@ -55,6 +55,9 @@ const MobileNavbar = ({authenticate, setAuthenticate}) => {
         }
     }
 
+    const goSearch = () => {
+        
+    }
     const toggleMenu = () => {
         setIsOpen(isOpen => !isOpen);
     }
@@ -68,11 +71,11 @@ const MobileNavbar = ({authenticate, setAuthenticate}) => {
                         <FontAwesomeIcon icon={faBars}/>
                     </button>  
                     <div className='mobile-nav-box'>
-                        {isMobile ? 
-                            <button className ='mobile-nav-button'><FontAwesomeIcon icon={faSearch}  className='mobile-nav-icon'/></button> : 
-                            <button></button>
-                    
-                        }
+                       
+                        <button className ='mobile-nav-button' onClick ={goSearch}>
+                            <FontAwesomeIcon icon={faSearch}  className='mobile-nav-icon'/>
+                        </button> 
+                             
                         <button className ='mobile-nav-button' onClick={authenticate==true ?logout : login}>
                         <FontAwesomeIcon icon={faUser} className='mobile-nav-icon'/>
                         </button>
