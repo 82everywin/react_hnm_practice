@@ -3,15 +3,18 @@ import { useNavigate } from 'react-router'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Container } from 'react-bootstrap';
-
+import { useDispatch } from 'react-redux';
 
 const Login = ({setAuthenticate,isMobile}) => { 
-  const linkTo = useNavigate();
+
   const navigate=useNavigate();
+
+  const dispatch = useDispatch();
 
   const loginUser = (event) =>{ 
     event.preventDefault();
    // console.log("submit user refresh")
+    dispatch.
     setAuthenticate(true);
     navigate("/");
   }

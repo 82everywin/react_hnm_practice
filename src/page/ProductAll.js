@@ -2,21 +2,22 @@ import React, { useEffect, useState } from 'react'
 import { Col, Container, Row} from 'react-bootstrap';
 import ProductCard from '../component/ProductCard';
 import { useSearchParams } from 'react-router-dom';
+import {productAction} from '../redux/actions/productAction'
+import { UseDispatch, useDispatch, useSelector } from 'react-redux';
 
 const ProductAll = ({authenticate, isMobile}) => {
 
     const [query, setQuery] = useSearchParams([]);
     
-    const [productList, setProductList] = useState([]);
+    //const [productList, setProductList] = useState([]);
+    const productList = useSelector(state => state.productList);
+    const dispatch = useDispatch();
 
     const getProducts = async() => {
         let searchQuery = query.get('q') || "";
         console.log("쿼리값", searchQuery)
-        let url = `https://my-json-server.typicode.com/82everywin/react_hnm_practice/products?q=${searchQuery}`;
-        let response = await fetch(url);
-        let data = await response.json();
-        setProductList(data);
-        console.log(data)
+        // 바로 reducer 로 넘어가는 것이 아니라 middleware로 넘어감 
+        dispatch(productAction.getProducts(searchQuery))
     }
 
  
