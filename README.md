@@ -5,7 +5,8 @@
 👉🏻👉🏻 [H&M 웹사이트]("https://bright-paprenjak-05cf2c.netlify.app")
 
 ![mainpage](./mainpage.png)
-![mainpage mobile.ver](./mainpage_mobile.png)
+![mainpage mobile.ver](./mobile_mainpage.png)
+
 
 ### 📌 기간
 ---
