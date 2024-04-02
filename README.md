@@ -1,8 +1,12 @@
 ## H&M 웹사이트 클론 코딩
 
+개념을 익히는 데 초점을 두고 만들었기에, 많은 기능을 내포하지 못했다. 추후, 공부를 통해 기능을 추가할 예정... 
+(추가하면 좋을 기능 : 장바구니, header에 따른 목록필터 ) 
+
 ### 배포 사이트
 
-👉🏻👉🏻 [H&M 웹사이트]("https://bright-paprenjak-05cf2c.netlify.app")
+👉🏻👉🏻 [H&M 웹사이트](https://bright-paprenjak-05cf2c.netlify.app)
+
 
 ![mainpage](./mainpage.png)
 <p align="center"><img src="./mobile_mainpage.png" width="300" hegiht="100" ></p>
