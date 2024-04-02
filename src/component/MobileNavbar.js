@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch, faXmark } from '@fortawesome/free-solid-svg-icons';
-import { faHeart } from '@fortawesome/free-regular-svg-icons';
+import { faSearch, faXmark ,faCartShopping} from '@fortawesome/free-solid-svg-icons';
+//import { faHeart } from '@fortawesome/free-regular-svg-icons';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
@@ -14,7 +14,9 @@ import { isMobile } from 'react-device-detect';
 const MobileNavbar = ({authenticate, setAuthenticate}) => {
 
     const [isOpen, setIsOpen]= useState(false);
-    
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const [text,setText]= useState("");
+ 
     const navigate = useNavigate(); 
     
     const login = () => {
@@ -41,6 +43,9 @@ const MobileNavbar = ({authenticate, setAuthenticate}) => {
         '지속가능성'
         ];
     
+    const show_search = () => {
+        setIsSearchOpen(isSearchOpen => !isSearchOpen);
+    }
 
     const search = (event) => {
         //console.log("onkeypress")
@@ -50,64 +55,102 @@ const MobileNavbar = ({authenticate, setAuthenticate}) => {
            // url을 바꿔준다 .
            let keyword = event.target.value
            console.log(keyword)
-           toggleMenu(isOpen)
+        
            navigate(`/?q=${keyword}`)
         }
     }
 
-    const goSearch = () => {
-        
+    const displayText = (e)=>{
+        setText(e.target.value);
+    }
+
+    const valueNull = (e) => {
+        setText("");
     }
     const toggleMenu = () => {
         setIsOpen(isOpen => !isOpen);
     }
+
   
     return (
-    <div>
-        <div>
-            <div  >
-                <ul>
-                    <button  className= 'mobile-menu-button' onClick={toggleMenu}>
-                        <FontAwesomeIcon icon={faBars}/>
-                    </button>  
-                    <div className='mobile-nav-box'>
-                       
-                        <button className ='mobile-nav-button' onClick ={goSearch}>
-                            <FontAwesomeIcon icon={faSearch}  className='mobile-nav-icon'/>
-                        </button> 
-                             
-                        <button className ='mobile-nav-button' onClick={authenticate==true ?logout : login}>
-                        <FontAwesomeIcon icon={faUser} className='mobile-nav-icon'/>
-                        </button>
+    <div >
+        <header className = "mobile-navbar">
+            <div>
+                <div>
+                    <ul>
+                        <button  className= 'mobile-menu-button' onClick={toggleMenu}>
+                            <FontAwesomeIcon icon={faBars}/>
+                        </button>  
 
-                        <button className='mobile-nav-button' onClick={mainpage}>
-                            <FontAwesomeIcon icon={faHeart} className='mobile-nav-icon' />
-                        </button>
-                    </div>
-                </ul>
-                <ul className={isOpen ? "show-menu" : "hide-menu"}>
-                    <div className='hide-button'>
-                        <button onClick={toggleMenu} className='hide-icon'>
-                        <FontAwesomeIcon icon={faXmark}/>
-                        </button>
-                    </div>
                     
-                    <div className='togglemenu'>
-                      {menuList.map((menu)=>
-                              <li>{menu}</li>
-                       )}
-                    </div>
-                </ul>
+
+                        <div className='mobile-nav-box'>
+                            
+                            <input 
+                            type ='text'
+                            placeholder='제품을 검색하세요'
+                            className = {isSearchOpen==true? 'mobile-search-text' : 'hidden'}
+                            onKeyUp={(event) => search(event)}
+                            value={text}
+                            onChange={displayText}
+                            onClick={valueNull}>
+                             
+                            </input> 
+                        
+                            <button className ={isSearchOpen==true?
+                            'mobile-search-bar hidden':
+                            'mobile-nav-button' }
+                                onClick= {show_search}>
+                                <FontAwesomeIcon icon={faSearch}  className='mobile-search-icon'/>
+                            </button> 
+
+                              <button className ={isSearchOpen==true?
+                            'mobile-search-bar':
+                            'mobile-nav-button hidden' }
+                                onClick={show_search}
+                                >
+                                <FontAwesomeIcon icon={faXmark}  className='mobile-search-icon'/>
+                            </button> 
+                                
+                     
+                            <button className ={isSearchOpen==true?
+                            'mobile-search-hidden':
+                           'mobile-nav-button' }
+                                onClick={authenticate==true ?logout : login}>
+                            <FontAwesomeIcon icon={faUser} className='mobile-nav-icon'/>
+                            </button>
+
+                            <button className={isSearchOpen==true?
+                                'mobile-search-hidden':
+                                'mobile-nav-button' } onClick={login}>
+                                <FontAwesomeIcon icon={faCartShopping} className='mobile-nav-icon' />
+                            </button>
+                        </div>
+                    </ul>
+                    <ul className={isOpen ? "show-menu" : "hide-menu"}>
+                        <div className='hide-button'>
+                            <button onClick={toggleMenu} className='hide-icon'>
+                            <FontAwesomeIcon icon={faXmark}/>
+                            </button>
+                        </div>
+                        
+                        <div className='togglemenu'>
+                        {menuList.map((menu)=>
+                                <li>{menu}</li>
+                        )}
+                        </div>
+                    </ul>
+                </div>
             </div>
-        </div>
-            
-      
-        <div className= "nav-section">
-         <img
-         onClick={mainpage}
-          width = {100}
-          src='https://blog.kakaocdn.net/dn/Yt80C/btqDeJAYUBo/JQbTuukRladq2AUOeqgiEK/img.jpg'></img>
-        </div>
+                
+        
+            <div className= "nav-section">
+            <img
+            onClick={mainpage}
+            width = {100}
+            src='https://blog.kakaocdn.net/dn/Yt80C/btqDeJAYUBo/JQbTuukRladq2AUOeqgiEK/img.jpg'></img>
+            </div>
+        </header>
     </div>
   ) 
 }

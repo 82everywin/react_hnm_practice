@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom'
 import Dropdown from 'react-bootstrap/Dropdown';
 import Button from 'react-bootstrap/Button';
 
-const ProductDetail = () => {
+const ProductDetail = ({isMobile}) => {
 
   let{id} = useParams()
   const [product, setProduct] = useState(null);
@@ -25,15 +25,15 @@ const ProductDetail = () => {
 
   return (
     
-      <Container>
+      <Container className={isMobile ?'mobile-product-top':'browse-product-top'}>
           <Row >
-            <Col className ="product-img">
-              <img src={product?.img}>
+            <Col >
+              <img src={product?.img} className={isMobile ? 'mobile-product-img'  :''}>
                </img>
             </Col>
             <Col>
               <div className='margin detail-title'> {product?.title}</div>
-              <div className='margin detail-price'>  ₩ {product?.price}</div>
+              <div className='margin detail-price'>  ₩{product?.price}</div>
               <div className='margin detail-choice'>{product?.choice == true ? "Conscious Choice" : ""}</div>
               <Dropdown  className='detail-size margin'>
                 <Dropdown.Toggle variant="outline-secondary" id="dropdown-basic">
@@ -50,6 +50,12 @@ const ProductDetail = () => {
               <div className="d-grid gap-2 detail-cart margin">
               <Button variant="secondary" size="lg">
                 장바구니 추가 
+              </Button>
+              </div>
+
+              <div className="d-grid gap-2 detail-cart margin">
+              <Button variant="dark" size="lg">
+                구매하기 
               </Button>
               </div>
             </Col> 

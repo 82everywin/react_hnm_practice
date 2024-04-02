@@ -5,6 +5,21 @@
     font-weight: 400;
     font-style: normal;
 }
+.browse-navbar{
+    
+    position: fixed;
+    top:0;
+    width : 100%;
+    z-index:100;
+    background-color: #fff;
+}
+.mobile-navbar {
+    position: fixed;
+    top:0;
+    width : 100%;
+    z-index:100;
+    background-color: #fff;
+}
 
   
 ul {
@@ -21,12 +36,12 @@ ul {
     font-size : 40px;
     background-color: transparent;
     border: none;
-    
+    color : #000000;
 }
 
 .show-menu{
     width: 280px;
-    height: 100%;
+    height: 400px;
     position: absolute;
     left: 0px;
     transition: 1s;
@@ -47,7 +62,8 @@ ul {
     list-style-type: none;
 }
 .togglemenu {
-    margin-left: 10px;;
+    margin-left: 10px;
+
 }
 
 /*검색 바 */
@@ -68,7 +84,7 @@ ul {
 /* 로그인 폼 S*/
 .login-form-box {
     width:350px;
-    margin-top: 30px;
+    margin-top: 275px;
     margin-left: 10px;
     margin-right:10px;
 }
@@ -78,13 +94,26 @@ ul {
 }
 
 .mobile-login-form {
-    width : 330px;
+    width : 310px;
     
 }
 .join {
     margin-top: 5px;;
 }
 /* 로그인 폼 S*/
+
+/* 모바일 로그인 폼 S*/
+.mobile-login-box {
+    width:330px;
+    margin-top: 180px;
+    margin-left: 10px;
+    margin-right:10px;
+}
+
+
+
+/* 모바일 로그인 폼 S*/
+
 
 
 /* 상단 바  S*/
@@ -111,33 +140,72 @@ ul {
 /* 상단 바 E */
 
 /* 모바일 버전 상단 바  S */
+.mobile-nav-box {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+}
 .mobile-menu-button{
     font-size :30px;
     position: absolute;
     left :10px;
     border:none;
     background-color: transparent;
+    color :#000000;
+    top:5px;
 }
 
-.mobile-nav-box {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 10px;
+.mobile-search-text {
+    border:0;
+    margin-top:5px;
+    width :250px;
+    height: 40px;
+    border-radius: 10px;
+    border-bottom: 1px solid #bbb;
 }
+
+.mobile-search-bar{
+    width : 30px;
+    height: 40px;
+    border : 0;
+    border-radius: 10px;
+    border-bottom: 1px solid #bbb;
+    color : #000000;
+    margin-top:5px;
+}
+
+.mobile-search-icon {
+    top:5px;
+    margin-top:10px;
+
+}
+
+
+.hidden {
+    display:none;
+}
+
 
 .mobile-nav-button{
     border:none;
     background-color: transparent;
     font-size:25px;
+    color :#000000;
+   
+}
+
+.mobile-search-hidden {
+    display:none;
 }
 
 .mobile-nav-icon {
+    top:5px;
     margin-top:10px;
     margin-right: 1px;
     margin-left:5px;
 }
 
-/* 모바읿 버전 상단 바  E */
+/* 모바일 버전 상단 바  E */
 
 .main-logo {
     background-color: transparent;
@@ -183,10 +251,16 @@ ul {
 }
 
 /* 상품 ALL S */
+.browse-product-top {
+    margin-top: 275px;
+}
+.mobile-product-top {
+   margin-top: 150px;
+}
 .browse-row {
 
 }
-.card_box { 
+.mobile_card_box { 
     display: flex;
     justify-content: center;
     margin-bottom:30px;
@@ -197,6 +271,16 @@ ul {
     padding-left:15px;
     padding-right:15px;
     padding-bottom:20px;
+}
+
+.new-product {
+    font-weight: bold;
+    color : rgb(230, 35, 35);
+}
+
+.hit-product {
+    font-weight: bold;
+    color : rgb(228, 37, 148);
 }
 /* 버전에 따른 이미지 크기 S */
 .browse-img {
@@ -223,6 +307,13 @@ ul {
 .mouseOver {
     width:380px;
    
+}
+
+.mobile-product-img{
+    display: flex;
+    justify-content: cener;
+    width:330px;
+
 }
 
 .product-img{

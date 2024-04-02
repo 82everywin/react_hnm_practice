@@ -43,43 +43,43 @@ const Navbar = ({authenticate, setAuthenticate}) => {
     }
 
   return (
-    <div>
-        <div>
-            
-            <div className = "nav-button" >
-                <FontAwesomeIcon icon={faUser}  className="nav-icon"/>
-                {
-                    authenticate==true ?
-                    <Link to="/" className= "nav-icon" onClick={logout}>로그아웃</Link>  :
-                    <Link to="/login" className= "nav-txt">로그인</Link> 
-                }
-                 <FontAwesomeIcon icon={faHeart}className= "nav-icon"/>         
-                 <Link to="/" className="nav-txt">즐겨찾기</Link>  
-                  
-                <FontAwesomeIcon icon={faCartShopping} className='nav-icon'/>
-                <Link to="/" className="nav-txt">장바구니</Link>  
-                      
+    <div className='browse-navbar'>
+       
+            <div>
+                <div className = "nav-button" >
+                    <FontAwesomeIcon icon={faUser}  className="nav-icon"/>
+                    {
+                        authenticate==true ?
+                        <Link to="/" className= "nav-icon" onClick={logout}>로그아웃</Link>  :
+                        <Link to="/login" className= "nav-txt">로그인</Link> 
+                    }
+                    <FontAwesomeIcon icon={faHeart}className= "nav-icon"/>         
+                    <Link to="/" className="nav-txt">즐겨찾기</Link>  
                     
-                 
+                    <FontAwesomeIcon icon={faCartShopping} className='nav-icon'/>
+                    <Link to="/" className="nav-txt">장바구니</Link>  
+                        
+                        
+                    
+                </div>
             </div>
-        </div>
-        <div className= "nav-section">
-         <img
-         onClick={mainpage}
-          width = {100}
-          src='https://www2.hm.com/hm-logo.png'></img>
-        </div>
-        <div className = "menu-area">
-            <ul className="menu-list">
-                {menuList.map((menu)=>
-                <li>{menu}</li>
-                )}
-            </ul>
-            <div className="search">
-                <FontAwesomeIcon icon={faSearch} className='img-search'/>
-                <input type="text" placeholder='제품검색' onKeyUp={(event) => search(event)} />
+            <div className= "nav-section">
+            <img
+            onClick={mainpage}
+            width = {100}
+            src='https://www2.hm.com/hm-logo.png'></img>
             </div>
-         </div>
+            <div className = "menu-area">
+                <ul className="menu-list">
+                    {menuList.map((menu)=>
+                    <li>{menu}</li>
+                    )}
+                </ul>
+                <div className="search">
+                    <FontAwesomeIcon icon={faSearch} className='img-search'/>
+                    <input type="text" placeholder='제품검색' onKeyUp={(event) => search(event)} />
+                </div>
+            </div>
     </div>
   
    

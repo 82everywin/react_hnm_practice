@@ -28,10 +28,10 @@ const ProductAll = ({authenticate, isMobile}) => {
 
   return (
     <div>
-        <Container >
+        <Container className={isMobile ?'mobile-product-top':'browse-product-top'} >
           <Row className='browse-row'>
            {productList.map((item)=>(
-                <Col lg={3} className = {isMobile ? "card_box" : "browse-col"}>
+                <Col lg={3} className = {isMobile ? "mobile_card_box" : ''}>
                   <ProductCard item={item} authenticate={authenticate} isMobile={isMobile} />
                 </Col>
               )) }
