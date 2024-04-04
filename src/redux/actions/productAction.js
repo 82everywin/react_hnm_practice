@@ -1,5 +1,6 @@
 // middleware 함수가 들어가는 자리 
 
+import { productActions } from "../reducer/productreducer";
 
 function getProducts(searchQuery) {
     return async(dispatch, getState) => {
@@ -8,7 +9,8 @@ function getProducts(searchQuery) {
         let response = await fetch(url);
         let data = await response.json();
         console.log(data)
-        dispatch({type:"GET_PRODUCT_SUCCESS", payload:{data}})
+    //   dispatch({type:"GET_PRODUCT_SUCCESS", payload:{data}})
+        dispatch(productActions.getAllProducts({data}))
     }
 }
 
@@ -18,7 +20,8 @@ function getProductsDetail(id){
     let response = await fetch(url)
     let data = await response.json();
    // console.log(data);
-    dispatch({type:"GET_PRODUCT_DETAIL_SUCCESS", payload:{data}})
+ //   dispatch({type:"GET_PRODUCT_DETAIL_SUCCESS", payload:{data}})
+    dispatch(productActions.getSingleProduct({data}))
     }
 }
 
